@@ -1,7 +1,10 @@
-from turing import TuringMachine
+from turing_controller import TuringController
 
 
 if __name__ == "__main__":
     
-    tm = TuringMachine(0)
+    tm_controller = TuringController()
+    tm_controller.initialize_tm()
+    tm_controller.run_tm()
+    
     exit()
