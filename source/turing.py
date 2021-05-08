@@ -21,10 +21,12 @@ class TuringMachine:
         #e.g q_0,a : (q_1, [(b, R)])
         #e.g for two tapes q_0,a,b : (q_1, [(b,R), (a,L)])
         self.transitions = dict()
+        return
     
 
     def set_tape_alpahabet(self, tape_alphabet):
         self.tape_alpahabet = tape_alphabet
+        return
     
 
     def set_in_alphabet(self, in_put_alphabet):
@@ -49,7 +51,7 @@ class TuringMachine:
 
     def set_transitions(self, transitions):
         self.transitions = transitions
-    
+        return
 
 
     def create_transition_key(self):
@@ -62,7 +64,7 @@ class TuringMachine:
 
     def add_new_blank(self, tape_num):
         self.tapes[tape_num].append("_")
-        
+        return
 
 
     def update_tapes(self, moves):
@@ -80,7 +82,7 @@ class TuringMachine:
 
 
     def transition_function(self):
-        print("###############/n/n")
+        print("###############/\n")
         key = self.create_transition_key()
         if key in self.transitions.keys():
             print("from: ", key)
@@ -133,13 +135,15 @@ class TuringMachine:
         self.tapes = [list() for i in range(num_tapes)]
         self.pos = [0 for i in range(num_tapes)]
 
+        return
+
 
     def read_input(self):
         in_put = str()
         incorect = True
         while(incorect):
             incorect = False
-            print("/n Input alphabet: ", self.in_put_alphabet, "/n")
+            print("\n Input alphabet: ", self.in_put_alphabet, "\n")
             in_put = input("input: ")
             for x in in_put:
                 if x not in self.in_put_alphabet:

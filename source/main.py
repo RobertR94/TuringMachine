@@ -1,10 +1,9 @@
-from turing_controller import TuringController
+from user_controller import UserController
 
 
 if __name__ == "__main__":
     
-    tm_controller = TuringController()
-    tm_controller.initialize_tm()
-    tm_controller.run_tm()
-    
+    uc = UserController()#
+    uc.menu()
+
     exit()

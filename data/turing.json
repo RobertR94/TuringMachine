@@ -1,11 +1,11 @@
 {
     
     "T1": {
-        "discription": "a^2",
+        "discription": "(m*a)^2 : m elemt of N (double the num of a)", 
         "num_tapes": 1,
         "tape_alphabet": ["a", "b", "_"],
         "input_alphabet": ["a"],
-        "states": ["q_0", "q_1", "q_2", "q_3", "q_4", "q_5", "q_6"],
+        "states": ["q_0", "q_1", "q_2", "q_3", "q_4", "q_5", "q_6", "q_7", "q_8"],
         "final_states": [],
         "initial_state": "q_0",
         "transitions" : { "q_0,a": ["q_1", [["b", "R"]]],
