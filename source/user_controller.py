@@ -69,9 +69,8 @@ class UserController:
                 print("\n\nPlease enter a valid command!\n\n")
             elif no_tm:
                 print("\n\nPlease select a valid Tm\n\n")
-            print("1. Add Tm: [Add]")
-            print("2. List Tms: [List]")
-            print("3. Select Tm: [TM-name]")
+            print("1. List Tms: [List]")
+            print("2. Select Tm: [TM-name]")
             print("3. Run: [Run]")
             print("4. Exit: [Exit]")
             print("\nSelected Tm: ", self.current_tm)

@@ -1,12 +1,15 @@
 {
     
     "T1": {
-        "discription": "(m*a)^2 : m elemt of N (double the num of a)", 
+        "discription": "(a^m)^2 : m elemt of N (double the num of a)", 
         "num_tapes": 1,
+        "is_limited": 0,
+        "num_steps": 0,
         "tape_alphabet": ["a", "b", "_"],
-        "input_alphabet": ["a"],
+        "input_alphabet": ["a", ""],
         "states": ["q_0", "q_1", "q_2", "q_3", "q_4", "q_5", "q_6", "q_7", "q_8"],
         "final_states": [],
+        "output_state": null,
         "initial_state": "q_0",
         "transitions" : { "q_0,a": ["q_1", [["b", "R"]]],
                           "q_1,a": ["q_1", [["a", "R"]]],
@@ -27,5 +30,71 @@
         }
         
 
+    },
+    "T2": {
+        "discription": "a*b: a,b elemt N/ using 3 tapes->e.g input: aabbb (2*3)",
+        "num_tapes": 3,
+        "num_steps": 0,
+        "is_limited": 0,
+        "tape_alphabet": ["a", "b", "_"],
+        "input_alphabet": ["a", "b", ""],
+        "states": ["q_0", "q_1", "q_2", "q_3", "q_4", "q_5"],
+        "final_states": [],
+        "output_state": null,
+        "initial_state": "q_0",
+        "transitions" : { "q_0,a,_,_" : ["q_1", [["a", "N"], ["_", "N"],[ "_", "N"]]],
+                          "q_0,b,_,_" : ["q_1", [["b", "N"], ["_", "N"], ["_", "N"]]],
+                          "q_1,a,_,_" : ["q_1", [["_", "R"], ["a", "R"], ["_", "N"]]],
+                          "q_1,b,_,_" : ["q_1", [["_", "R"], ["_", "N"], ["b", "R"]]],
+                          "q_1,_,_,_" : ["q_2", [["_", "N"], ["_", "L"], ["_", "L"]]],
+                          "q_2,_,a,b" : ["q_2", [["_", "N"], ["a", "L"], ["b", "L"]]],
+                          "q_2,_,a,_" : ["q_2", [["_", "N"], ["a", "L"], ["_", "N"]]],
+                          "q_2,_,_,b" : ["q_2", [["_", "N"], ["_", "N"], ["b", "L"]]],
+                          "q_2,_,_,_" : ["q_3", [["_", "N"], ["_", "R"], ["_", "R"]]],
+                          "q_3,_,a,b" : ["q_4", [["_", "N"], ["a", "N"], ["b", "N"]]],
+                          "q_4,_,a,b" : ["q_4", [["a", "R"], ["a", "N"], ["b", "R"]]],
+                          "q_4,_,a,_" : ["q_5", [["_", "N"], ["a", "R"], ["_", "L"]]],
+                          "q_5,_,a,b" : ["q_5", [["_", "N"], ["a", "N"], ["b", "L"]]],
+                          "q_5,_,a,_" : ["q_3", [["_", "N"], ["a", "N"], ["_", "R"]]]
+
+ 
+        }
+    },
+    "T3":{
+        "discription": "get all numbers of ZZ where a = 1 and ba = -1",
+        "num_tapes": 1,
+        "num_steps": 10,
+        "is_limited": 1,
+        "tape_alphabet": ["a", "b", "_"],
+        "input_alphabet": [""],
+        "states": ["q_0", "q_1", "q_2", "q_3"],
+        "final_states": [],
+        "output_state": "q_out",
+        "initial_state": "q_0",
+        "transitions" : { "q_0,_" : ["q_out", [["_", "N"]]],
+                          "q_out,_" : ["q_out", [["a", "N"]]],
+                          "q_out,a" : ["q_1", [["a", "L"]]],
+                          "q_out,b" : ["q_out", [["a", "N"]]],
+                          "q_1,_" : ["q_out", [["b", "N"]]]
+        }
+    },
+    "T4":{
+        "discription": "f:(a,b) -> a + b, aaa_aaa means 3 + 3",
+        "num_tapes": 1,
+        "num_steps": 0,
+        "is_limited": 0,
+        "tape_alphabet": ["a", "_"],
+        "input_alphabet": ["a", "_", ""],
+        "states": ["q_0", "q_1", "q_2", "f"],
+        "final_states": ["f"],
+        "output_state": null,
+        "initial_state": "q_0",
+        "transitions" : { "q_0,a" : ["q_0", [["a", "R"]]],
+                          "q_0,_" : ["q_1", [["a", "L"]]],
+                          "q_1,a" : ["q_1", [["a", "L"]]],
+                          "q_1,_" : ["q_2", [["_", "R"]]],
+                          "q_2,a" : ["f", [["_", "R"]]]
+                          
+        }
     }
 }
